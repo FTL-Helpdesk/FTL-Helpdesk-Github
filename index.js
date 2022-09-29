@@ -17,6 +17,9 @@ function initMap()
     center: { lat: 53.772530, lng: -1.537364 }, //FT office co-ords
     zoom: 6,
   });
+  //Load marker image library
+  const iconBase =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
   infoWindow = new google.maps.InfoWindow();
 //INSERT NEW FUNCTION HERE
   //Create red Marker Positioned at FT Leeds Office
@@ -27,7 +30,8 @@ function initMap()
     title: "FT Office Leeds"
   });
 
-  const locationButton = document.createElement("button");
+  //initalize buttons
+  const locationButton = document.createElement("button"); //creates pin to location button
 
   locationButton.textContent = "Pan to Current Location";
   locationButton.classList.add("custom-map-control-button");
