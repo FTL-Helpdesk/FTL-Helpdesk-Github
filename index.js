@@ -30,7 +30,7 @@ function initMap()
     position: FT_office_UK,
     map,
     title: "FT Office Location ",
-    icon: iconBase + "parking_lot_maps.png", //Changes FT Office Marker Icon To Office Style
+    icon: "office-building.png", //Changes FT Office Marker Icon To Office Style
   });
 
   //initalize buttons
