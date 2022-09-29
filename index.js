@@ -3,15 +3,15 @@
  * Copyright 2019 Google LLC. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
+// [START maps_map_geolocation]
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map: google.maps.Map, infoWindow: google.maps.InfoWindow;
+let map, infoWindow;
 
-function initMap(): void {
-  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 6,
   });
@@ -21,14 +21,12 @@ function initMap(): void {
 
   locationButton.textContent = "Pan to Current Location";
   locationButton.classList.add("custom-map-control-button");
-
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-
   locationButton.addEventListener("click", () => {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (position: GeolocationPosition) => {
+        (position) => {
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
@@ -40,21 +38,17 @@ function initMap(): void {
           map.setCenter(pos);
         },
         () => {
-          handleLocationError(true, infoWindow, map.getCenter()!);
+          handleLocationError(true, infoWindow, map.getCenter());
         }
       );
     } else {
       // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter()!);
+      handleLocationError(false, infoWindow, map.getCenter());
     }
   });
 }
 
-function handleLocationError(
-  browserHasGeolocation: boolean,
-  infoWindow: google.maps.InfoWindow,
-  pos: google.maps.LatLng
-) {
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
     browserHasGeolocation
@@ -64,10 +58,5 @@ function handleLocationError(
   infoWindow.open(map);
 }
 
-declare global {
-  interface Window {
-    initMap: () => void;
-  }
-}
 window.initMap = initMap;
-export {};
+// [END maps_map_geolocation]
