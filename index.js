@@ -10,12 +10,21 @@
 // locate you.
 let map, infoWindow;
 
-function initMap() {
+//initalize and add the map, center on FT leeds office location
+function initMap() 
+{
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 53.772530, lng: -1.537364 },
+    center: { lat: 53.772530, lng: -1.537364 }, //FT office co-ords
     zoom: 6,
   });
   infoWindow = new google.maps.InfoWindow();
+
+  //Create Marker Positioned at FT Leeds Office
+  const FT_office = { lat: 53.772530, lng: -1.537364 }; //creates constant for FT office marker
+  const marker = new google.maps.Marker({
+    position: FT_office,
+    map: map,
+  });
 
   const locationButton = document.createElement("button");
 
