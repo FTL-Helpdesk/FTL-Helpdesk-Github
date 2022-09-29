@@ -24,13 +24,13 @@ function initMap()
     
   infoWindow = new google.maps.InfoWindow();
   //Create red Marker Positioned at FT Leeds Office
-  const FT_office = { lat: 53.772530, lng: -1.537364 }; //creates constant for FT office marker
+  const FT_office_UK = { lat: 53.772530, lng: -1.537364 }; //creates constant for FT office marker
   
   new google.maps.Marker({
-    position: FT_office,
+    position: FT_office_UK,
     map,
     title: "FT Office Location ",
-    icon: iconBase + "parking_lot_maps.png",
+    icon: iconBase + "parking_lot_maps.png", //Changes FT Office Marker Icon To Office Style
   });
 
   //initalize buttons
