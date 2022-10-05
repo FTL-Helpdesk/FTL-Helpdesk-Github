@@ -10,6 +10,8 @@
 // locate you.
 let map, infoWindow;
 
+//load drawing library tool
+
 //initalize and add the map, center on FT leeds office location
 function initMap() 
 {
@@ -18,19 +20,20 @@ function initMap()
     center: { lat: 53.772530, lng: -1.537364 }, //FT office co-ords
     zoom: 6,
   });
+  
   //Load marker image library
   const iconBase =
     "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
     
   infoWindow = new google.maps.InfoWindow();
   //Create red Marker Positioned at FT Leeds Office
-  const FT_office_UK = { lat: 53.772530, lng: -1.537364 }; //creates constant for FT office marker
+  const FT_office = { lat: 53.772530, lng: -1.537364 }; //creates constant for FT office marker
   
   new google.maps.Marker({
-    position: FT_office_UK,
+    position: FT_office,
     map,
     title: "FT Office Location ",
-    icon: "office-building.png", //Changes FT Office Marker Icon To Office Style
+    icon: iconBase + "parking_lot_maps.png", //Changes FT Office Marker Icon To Office Style
   });
 
   //initalize buttons
